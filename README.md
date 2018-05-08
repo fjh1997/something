@@ -9,7 +9,7 @@
   pip是python包管理器，一般是自带的，如果没有也可参考别人教程https://blog.csdn.net/huhuang/article/details/60873882
 ## 四、使用pip安装splinter爬虫工具 ##
   按住shift+鼠标右键，可以在任一目录下打开cmd，在命令行里输入
-     pip install splinter
+         pip install splinter
   如果报错，那可能是pip或者python的环境变量没设置好
 ## 五、下载geckodriver.exe ##
   这个在我的版本库中有，请自行下载，并放置在和python同一个环境变量的目录下
