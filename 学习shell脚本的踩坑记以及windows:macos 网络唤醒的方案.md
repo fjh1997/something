@@ -68,11 +68,11 @@ curdate="$(date)"
 curdate=${curdate:0:11}
 if [[ "$olddate" != "$curdate" ]] ; then
  date >/users/fjh1997/date.txt
- shutdown now
+ shutdown -h now
 fi
 ```
 以上两个脚本的功能类似，都是先检查文件里记录的日期，如果日期和当前日期不一样，说明今天没有启动过该脚本，那就启动一下（关机呗）然后记录日期。
-windows的设置较简单，在任务计划程序里设置工作日每次用户登录时启动该脚本就行了，mac os的则较复杂，需要配置一个plist文件如下（文件里需要写明脚本地址）：
+windows的设置较简单，在任务计划程序里设置工作日每次用户登录时启动该脚本就行了，mac os的则较复杂，需要配置一个名为com.shutdown.plist文件如下（文件里需要写明脚本地址）：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,11 +93,16 @@ windows的设置较简单，在任务计划程序里设置工作日每次用户�
 </dict>
 </plist>
 ```
-将上述的plist文件放入以下目录，确保有root权限执行（毕竟涉及shutdown命令）。
+将上述的plist文件放入以下目录，改变所有者，并确保有root权限执行（毕竟涉及shutdown命令）,之后使用launchdctl载入。
 
 ><br> 	/Library/LaunchDaemons/
 <br>/System/Library/LaunchDaemons/
 
+```shell
+sudo chown root /Library/LaunchDaemons/com.shutdown.plist
+sudo chown root /System/Library/LaunchDaemons/com.shutdown.plist
+sudo launchdctl load /System/Library/LaunchDaemons/com.shutdown.plist
+```
 
 ## 解决问题的过程中遇到的问题
 其中最主要的问题是关于shell脚本的问题，也是踩坑最多的地方。shell脚本相当于在脚本文件中自动调用系统命令的一种方式，而系统命令往往是需要有**参数**的，这就注定了我们shell脚本中的每一个符号乃至字符串都是被当作**参数**来处理的，所以千万不能吝啬空格，举例如下。
