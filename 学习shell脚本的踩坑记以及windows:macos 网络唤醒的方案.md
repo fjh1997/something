@@ -95,8 +95,8 @@ windows的设置较简单，在任务计划程序里设置工作日每次用户�
 ```
 将上述的plist文件放入以下目录，确保有root权限执行（毕竟涉及shutdown命令）。
 
-> 	/Library/LaunchDaemons/
-	/System/Library/LaunchDaemons/
+><br> 	/Library/LaunchDaemons/
+<br>/System/Library/LaunchDaemons/
 
 
 ## 解决问题的过程中遇到的问题
