@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.shutdown</string>
+	<key>Program</key>
+	<array>
+		<string>bash</string>
+	</array>	<key>ProgramArguments</key>
+	<array>
+		<string>/users/fjh1997/shutdown.sh</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+</dict>
+</plist>
