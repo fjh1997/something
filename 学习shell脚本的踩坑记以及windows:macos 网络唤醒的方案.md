@@ -62,12 +62,12 @@ macOS：shutdown.sh
 
 ```bash
 #!/bin/bash
-olddate=$(<date.txt)
+olddate=$(</users/fjh1997/date.txt)
 olddate=${olddate:0:11}
 curdate="$(date)"
 curdate=${curdate:0:11}
 if [[ "$olddate" != "$curdate" ]] ; then
- date >date.txt
+ date >/users/fjh1997/date.txt
  shutdown now
 fi
 ```
